@@ -12,7 +12,7 @@ const client = new MongoClient(uri, {
 
 async function connectDB() {
   try {
-    await client.connect();
+    // await client.connect();
     console.log("Connected to MongoDB successfully");
     return client.db("ToDoApp");
   } catch (error) {
