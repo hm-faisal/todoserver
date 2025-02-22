@@ -22,7 +22,6 @@ export const setupWebSocket = (server: http.Server, db: Db) => {
       try {
         // Response Initial data form database
         const data = await websocketResponse(db, email);
-        console.log(data);
         socket.emit("todo", data ? data : []);
       } catch (error) {
         console.error("Error fetching initial data:", error);
