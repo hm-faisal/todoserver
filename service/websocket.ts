@@ -14,15 +14,15 @@ export const setupWebSocket = (server: http.Server, db: Db) => {
 
   io.on("connection", async (socket) => {
     console.log(`User connected: ${socket.id}`);
-    let email;
     socket.on("getTodoFor", async (user) => {
-      email = user;
+      const email = user;
       if (!email) {
         throw error("user Not Found", 404);
       }
       try {
         // Response Initial data form database
         const data = await websocketResponse(db, email);
+        console.log(data);
         socket.emit("todo", data ? data : []);
       } catch (error) {
         console.error("Error fetching initial data:", error);
