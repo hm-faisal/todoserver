@@ -7,7 +7,7 @@ import error from "../utils/error";
 export const setupWebSocket = (server: http.Server, db: Db) => {
   const io = new Server(server, {
     cors: {
-      origin: ["http://localhost:5173", "https://to-do-nine-dun.vercel.app/"],
+      origin: ["http://localhost:5173", "https://to-do-nine-dun.vercel.app"],
       methods: ["GET", "POST", "PUT", "DELETE"],
     },
   });
